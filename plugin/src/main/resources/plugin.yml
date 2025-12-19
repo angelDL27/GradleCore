@@ -1,6 +1,6 @@
-name: plugin
-version: '1.0'
-main: mx.angelDL_.plugin.Plugin
-api-version: '1.21'
+name: ${name}
+version: ${version}
+main: mx.angelDL_.plugin.GradleCore
+api-version: ${api}
 load: STARTUP
-authors: [angelDL_]
+authors: [${autor}]

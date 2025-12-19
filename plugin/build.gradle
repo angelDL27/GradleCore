@@ -12,17 +12,17 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+    implementation project(":public-api")
+    implementation project(":api-adapter")
+
 }
 
 
 def targetJavaVersion = 8
 java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
-    }
+toolchain {
+    languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+}
 }
 
 tasks.withType(JavaCompile).configureEach {

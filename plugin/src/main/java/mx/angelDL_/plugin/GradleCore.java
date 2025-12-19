@@ -2,16 +2,16 @@ package mx.angelDL_.plugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Plugin extends JavaPlugin {
+public final class GradleCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        // GradleCore startup logic
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        // GradleCore shutdown logic
     }
 }
