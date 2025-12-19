@@ -1,6 +1,0 @@
-name: public-api
-version: '1.0'
-main: mx.angelDL_.publicApi.PublicApi
-api-version: '1.21'
-load: STARTUP
-authors: [angelDL_]
