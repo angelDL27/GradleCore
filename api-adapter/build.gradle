@@ -1,28 +1,23 @@
 plugins {
     id 'java'
+    id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
-allprojects {
-    group = "mx.angel.life"
-    version = projectVersion
-
-
-    repositories {
-        mavenCentral()
-        maven { url = "https://repo.papermc.io/repository/maven-public/" }
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
     }
 }
 
-
-subprojects {
-    apply plugin: 'java'
-
-
-    tasks.withType(JavaCompile).configureEach {
-        options.encoding = 'UTF-8'
-    }
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
 }
-def targetJavaVersion = 8
+
+
+
+def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -39,12 +34,9 @@ tasks.withType(JavaCompile).configureEach {
         options.release.set(targetJavaVersion)
     }
 }
-
-processResources {
-    def props = [version: version]
-    inputs.properties props
-    filteringCharset 'UTF-8'
-    filesMatching('plugin.yml') {
-        expand props
-    }
+jar{
+    archiveBaseName.set("api-adapter")
+    archiveVersion.set(project.version)
+    archiveClassifier.set("")
 }
+

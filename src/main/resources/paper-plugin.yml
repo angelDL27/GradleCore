@@ -1,6 +1,0 @@
-name: GradleCore
-version: '1.0'
-main: mx.angelDL_.gradleCore.GradleCore
-api-version: '1.21'
-load: STARTUP
-authors: [ angelDL_ ]
